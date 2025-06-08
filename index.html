@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广东诚宇电力科技有限公司 - 高品质成套配电设备制造专家</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* 页眉导航 - 高级商务风格 */
+        header {
+            background: linear-gradient(135deg, #0c4b78 0%, #1a7bb9 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .logo h1::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: #ffc107;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        nav a:hover {
+            color: #ffc107;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #ffc107;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* 移动端导航菜单 */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        /* 英雄区域 - 电力行业主题背景（添加了动态效果） */
+        .hero {
+            background: linear-gradient(rgba(12, 75, 120, 0.9), rgba(26, 123, 185, 0.85)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600"><rect width="1200" height="600" fill="%230c4b78"/><path d="M200,200 L400,100 L600,200 L500,300 H700 L400,400 L500,500 L300,400 H100 L200,300 L200,200 Z" fill="none" stroke="%231a7bb9" stroke-width="3" stroke-opacity="0.3"/></svg>');
+            color: white;
+            text-align: center;
+            padding: 8rem 1rem;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            min-height: 80vh;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 2px 极光新闻2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin: 0 auto 2.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            max-width: 700px;
+        }
+        
+        /* 科技动态背景元素 */
+        .circuit-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .line {
+            position: absolute;
+            background: rgba(100, 200, 255, 0.5);
+        }
+        
+        .line-h {
+            width: 100%;
+            height: 1px;
+            top: 30%;
+            animation: slideH 15s linear infinite;
+        }
+        
+        .line-v {
+            height: 100%;
+            width: 1px;
+            left: 30%;
+            animation: slideV 12s linear infinite;
+        }
+        
+        .circuit-node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(0, 200, 255, 0.8);
+        }
+        
+        .electric-dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(0, 200, 255, 0.8);
+            animation: pulse 2s infinite alternate;
+        }
+        
+        @keyframes slideH {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        @keyframes slideV {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.7; }
+            100% { transform: scale(1.2); opacity: 1; }
+        }
+        
+        /* 内容区通用样式 */
+        .section {
+            padding: 5rem 0;
+            background: white;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1a7bb9;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #ffc107;
+            border-radius: 2px;
+        }
+        
+        /* 关于我们 - 优化布局 - 新增图文布局结构 */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        
+        /* 新增图片区域样式 */
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            height: 400px;
+            background: linear-gradient(120deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+            background-size: 200% 100%;
+            animation: gradientBg 3s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .about-image .image-placeholder {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .about-image .image-placeholder i {
+            font-size: 3.5rem;
+            color: #1a7bb9;
+            margin-bottom: 1rem;
+        }
+        
+        .about-text {
+            padding: 0 20px;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: #0c4b78;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+            text-align: justify;
+        }
+        
+        @keyframes gradientBg {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        /* 产品展示 - 9个产品 */
+        .products {
+            background: #f8f9fa;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 修改产品图片区域 - 支持添加实际图片 */
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: linear-gradient(45deg, #1a7bb9, #0c4b78);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .product-image .placeholder-content {
+            color: white;
+            text-align: center;
+            font-size: 1.2rem;
+            padding: 0 20px;
+        }
+        
+        .product-image .placeholder-content i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .product-info {
+            padding: 1.8rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-info h3 {
+            font-size: 1.5rem;
+            color: #0c4b78;
+            margin-bottom: 1rem;
+        }
+        
+        .product-info p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        /* 联系我们 - 双板块布局（联系信息和微信二维码整合在一起） */
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-info-container {
+            height: 100%;
+        }
+        
+        .contact-info {
+            padding: 2rem;
+            background: #1a7bb9;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #ffc107;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.8rem;
+            margin-right: 1.5rem;
+            color: #ffc107;
+            min-width: 30px;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .contact-text p {
+            color: #e0e0e0;
+        }
+        
+        .contact-text a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .contact-text a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background: #ffc107;
+            transition: width 0.3s;
+        }
+        
+        .contact-text a:hover {
+            color: #ffc107;
+        }
+        
+        .contact-text a:hover::after {
+            width: 100%;
+        }
+        
+        /* 整合微信二维码样式 */
+        .contact-wechat {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        .contact-wechat .contact-icon {
+            margin: 0 auto 1rem;
+            display: block;
+            font-size: 2rem;
+        }
+        
+        .qr-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 180px;
+            height: 180px;
+            margin: 1rem auto;
+            background: linear-gradient(to right, #e3f3ff, #b9e2ff);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .qr-placeholder i {
+            font-size: 3.5rem;
+            color: #1a7bb9;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .qr-placeholder::before {
+            content: '';
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background-image: 
+                linear-gradient(135deg, transparent 49%, #1a7bb9 50%),
+                linear-gradient(45deg, transparent 49%, #1a7bb9 50%);
+            background-size: 20px 20px;
+            z-index: 1;
+            opacity: 0.1;
+        }
+        
+        .qr-placeholder::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.5) 50%, transparent 70%);
+            animation: qrRotate 20s linear infinite;
+        }
+        
+        .contact-wechat p {
+            color: white;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .contact-wechat .contact-name {
+            font-weight: 500;
+            color: #ffc107;
+        }
+        
+        @keyframes qrRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* 企业荣誉与认证区块 */
+        .honors-container {
+            padding: 2rem;
+            background: #f0f8ff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        
+        .honors-title {
+            text-align: center;
+            color: #1a7bb9;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .honors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .honor-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .honor-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .honor-icon {
+            font-size: 2.5rem;
+            color: #1a7bb9;
+            margin-bottom: 1rem;
+        }
+        
+        .honor-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #0c4b78;
+        }
+        
+        .honor-text {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* 企业认证区域 */
+        .certificates {
+            background: #f0f8ff;
+            border-radius: 8px;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .certificate-item {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        .certificate-icon {
+            width: 50px;
+            height: 50px;
+            background: #1a7bb9;
+            border-radius: 10px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        
+        .certificate-text h4 {
+            color: #0c4b78;
+            margin-bottom: 0.5rem;
+        }
+        
+        .certificate-text p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* 页脚 - 优化版 */
+        footer {
+            background: #0c4b78;
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .quick-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+        }
+        
+        .quick-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 10px;
+        }
+        
+        .quick-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffc107;
+            transition: width 0.3s;
+        }
+        
+        .quick-links a:hover {
+            color: #ffc107;
+        }
+        
+        .quick-links a:hover::after {
+            width: 100%;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+        
+        .company-info {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+        }
+        
+        /* 响应式样式 - 增强 */
+        @media (max-width: 1200px) {
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero {
+                padding: 6rem 1rem;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+            
+            /* 关于我们响应式 */
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                height: 350px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: row;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #0c4b78;
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav li {
+                margin: 0;
+                text-align: center;
+            }
+            
+            nav a {
+                display: block;
+                padding: 1rem;
+                margin: 0;
+            }
+            
+            nav a::after {
+                display: none;
+            }
+            
+            .hero {
+                padding: 5rem 1rem;
+                min-height: 70vh;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .quick-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero {
+                padding: 4rem 1rem;
+                min-height: 60vh;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                height: 280px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .logo h1 {
+                font-size: 1.3rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.6rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+        }
+        
+        /* 返回顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #1a7bb9;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: #0c4b78;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- 页眉导航 -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>广东诚宇电力科技有限公司</h1>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="#about">关于我们</a></li>
+                        <li><a href="#products">产品介绍</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- 英雄区域 - 添加动态科技元素 -->
+    <section class="hero">
+        <div class="circuit-line" id="circuitLines"></div>
+        <div class="hero-content">
+            <h2>高品质成套配电设备制造专家</h2>
+            <p>提供优质可靠的工业配电产品和解决方案</p>
+        </div>
+    </section>
+    
+    <!-- 关于我们 - 增加了图文布局 -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>关于我们</h2>
+            </div>
+            <div class="about-content">
+                 <img src="images/1200.800.png" alt="诚宇电力工厂">
+                </div>
+                
+                <div class="about-text">
+                    <h3>诚宇电力</h3>
+                    <p>座落于产业配套完善的佛山市南海区狮山镇，是一家专业从事高低压配电设备设计研发、制造、销售与服务于一体的多元化企业。</p>
+                    <p>主要生产高低压成套开关柜、配电箱等系列电气产品，产品广泛运用于配电设备、建筑工业及电气自动化等产业。</p>
+                    <p>我们拥有现代化标准厂房和先进的生产设备，占地面积5000平方米，配备专业的技术团队和生产人员，年生产能力达到大型成套设备1000台套。</p>
+                    <p>公司始终秉承"质量第一，客户至上"的经营理念，严格执行ISO9001质量管理体系，产品远销肯尼亚、柬埔寨、越南等国家和地区，赢得海内外客户的广泛认可。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 产品介绍 - 使用可替换的产品图片 -->
+    <section class="section products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>产品介绍</h2>
+            </div>
+            
+            <div class="product-grid">
+                <!-- GGD低压开关柜 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/GGD.png" alt="GGJ低压开关柜"> -->
+                    </div>
+                    <div class="product-info">
+                        <h3>GGJ低压开关柜</h3>
+                        <p>动热稳定性好，结构新颖合理，电气方案切合实际，系列性使用性强，防护等级高。可作为更新换代的产品使用。</p>
+                    </div>
+                </div>
+                
+                <!-- GCK低压抽出式开关柜 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <!-- 实际使用时替换为：<img src="product2.jpg" alt="GCK低压抽出式开关柜"> -->
+                        <div class="placeholder-content">
+                            <i class="fas fa-sitemap"></i>
+                            <p>GCK低压抽出式开关柜图片</p>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>GCK低压抽出式开关柜</h3>
+                        <p>插接牢靠、受力均匀、插拔平衡，连接可靠。抽屉拉出自动封闭，安全用电。</p>
+                    </div>
+                </div>
+                
+                <!-- XL-21低压动力柜 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <!-- 实际使用时替换为：<img src="product3.jpg" alt="XL-21低压动力柜"> -->
+                        <div class="placeholder-content">
+                            <i class="fas fa-bolt"></i>
+                            <p>XL-21低压动力柜图片</p>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>XL-21低压动力柜</h3>
+                        <p>可装电压表、电流表等测量仪表和操作电器、信号电器等，操作目视简便，结构简单、运行可靠。</p>
+                    </div>
+                </div>
+                
+                <!-- MNS低压开关柜 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <!-- 实际使用时替换为：<img src="product4.jpg" alt="MNS低压开关柜"> -->
+                        <div class="placeholder-content">
+                            <i class="fas fa-sliders-h"></i>
+                            <p>MNS低压开关柜图片</p>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>MNS低压开关柜</h3>
+                        <p>设计紧凑，结构合理，具有良好的扩展性和灵活性。适用于各种低压配电系统。</p>
+                    </div>
+                </div>
+                
+                <!-- KYN28高压开关柜 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <!-- 实际使用时替换为：<img src="product5.jpg" alt="KYN28高压开关柜"> -->
+                        <div class="placeholder-content">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <p>KYN28高压开关柜图片</p>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>KYN28高压开关柜</h3>
+                        <p>金属铠装中置式开关柜，适用于交流50Hz、3-10KV的三相系统，用于配电系统的控制。</p>
+                    </div>
+                </div>
+                
+                <!-- 预装式箱式变电站 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <!-- 实际使用时替换为：<img src="product6.jpg" alt="预装式箱式变电站"> -->
+                        <div class="placeholder-content">
+                            <i class="fas fa-box"></i>
+                            <p>预装式箱式变电站图片</p>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>预装式箱式变电站</h3>
+                        <p>将高压电器设备、变压器、低压电器设备等组合成紧凑式配电装置，适用于城市公共配电等场所。</p>
+                    </div>
+                </div>
+                
+                <!-- XL-51系列配电箱 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <!-- 实际使用时替换为：<img src="product7.jpg" alt="XL-51系列配电箱"> -->
+                        <div class="placeholder-content">
+                            <i class="fas fa-cube"></i>
+                            <p>XL-51系列配电箱图片</p>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>XL-51系列配电箱</h3>
+                        <p>结构简单，实用性强，防护等级高。广泛应用于建筑、工业等配电场所。</p>
+                    </div>
+                </div>
+                
+                <!-- 自动控制系统箱 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <!-- 实际使用时替换为：<img src="product8.jpg" alt="自动控制系统箱"> -->
+                        <div class="placeholder-content">
+                            <i class="fas fa-cogs"></i>
+                            <p>自动控制系统箱图片</p>
+                        </div>
+                    </div>
+                    <div class="product极光新闻-info">
+                        <h3>自动控制系统箱</h3>
+                        <p>集控制、保护、信号、测量功能于一体的控制箱，适用于各类自动化控制场所。</p>
+                    </div>
+                </div>
+                
+                <!-- 电缆桥架系统 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <!-- 实际使用时替换为：<img src="product9.jpg" alt="电缆桥架系统"> -->
+                        <div class="placeholder-content">
+                            <i class="fas fa-network-wired"></i>
+                            <p>电缆桥架系统图片</p>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>电缆桥架系统</h3>
+                        <p>优质的电缆桥架产品，适用于各种强电、弱电系统工程的敷设。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 联系我们 - 双栏布局（联系信息+企业荣誉） -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>联系我们与其他</h2>
+            </div>
+            
+            <div class="contact-content">
+                <!-- 整合的联系信息板块（包含微信二维码） -->
+                <div class="contact-info-container">
+                    <div class="contact-info">
+                        <h3>联系信息</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>地址</h4>
+                                <p>广东省佛山市南海区狮山镇骏业南路3号狮山工业园C区之九</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>电话</h4>
+                                <p><a href="tel:075786688223">0757-86688223</a></p>
+                                <p><a href="tel:13927700219">139 2770 0219</a></p>
+                            </div>
+                        </div>
+                        
+                        <!-- 添加的微信二维码部分 -->
+                        <div class="contact-wechat">
+                            <div class="contact-icon">
+                                <i class="fab fa-weixin"></i>
+                            </div>
+                            <div class="qr-placeholder">
+                                <i class="fab fa-weixin"></i>
+                            </div>
+                            <p>扫描二维码添加微信</p>
+                            <p class="contact-name">诚宇电力科技</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 企业荣誉与认证 -->
+                <div class="honors-container">
+                    <h3 class="honors-title">其他信息</h3>
+                    <div class="honors-grid">
+                        <div class="honor-item">
+                            <div class="honor-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="honor-title">ISO 9001认证</div>
+                            <div class="honor-text">国际质量管理体系认证</div>
+                        </div>
+                        
+                        <div class="honor-item">
+                            <div class="honor-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="honor-title">高新技术企业</div>
+                            <div class="honor-text">国家级高新技术认证</div>
+                        </div>
+                        
+                        <div class="honor-item">
+                            <div class="honor-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="honor-title">CCC强制认证</div>
+                            <div class="honor-text">国家强制性产品认证</div>
+                        </div>
+                        
+                        <div class="honor-item">
+                            <div class="honor-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="honor-title">RoHS认证</div>
+                            <div class="honor-text">环保安全认证标准</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 页脚 - 优化版 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="company-info">
+                    <p>广东诚宇电力科技，专业提供高品质成套配电设备及解决方案</p>
+                    <p>质量信誉双保障</p>
+                </div>
+                
+                <div class="quick-links">
+                    <a href="#about">工厂介绍</a>
+                    <a href="#products">产品中心</a>
+                    <a href="#contact">联系方式</a>
+                </div>
+                
+                <div class="copyright">
+                    <p>© 2023 广东诚宇电力科技 版权所有 | 电力行业</p>
+                    <p style="margin-top: 10px;">专注于高低压成套设备制造</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 返回顶部按钮 -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <script>
+        // 移动端菜单切换
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('nav a, .quick-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                // 如果是移动端菜单，点击后关闭菜单
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                }
+                
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // 当前导航高亮
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if(scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // 返回顶部按钮显示/隐藏
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        // 返回顶部功能
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 创建科技感动态背景元素
+        function createBackgroundElements() {
+            const circuitLines = document.getElementById('circuitLines');
+            
+            // 添加水平线
+            for (let i = 0; i < 5; i++) {
+                const hLine = document.createElement('div');
+                hLine.className = 'line line-h';
+                hLine.style.top = (i * 15 + 10) + '%';
+                hLine.style.animationDuration = (12 + Math.random() * 8) + 's';
+                circuitLines.appendChild(hLine);
+            }
+            
+            // 添加垂直线
+            for (let i = 0; i < 5; i++) {
+                const vLine = document.createElement('div');
+                vLine.className = 'line line-v';
+                vLine.style.left = (i * 15 + 10) + '%';
+                vLine.style.animationDuration = (10 + Math.random() * 10) + 's';
+                circuitLines.appendChild(vLine);
+            }
+            
+            // 添加电路节点
+            for (let i = 0; i < 30; i++) {
+                const node = document.createElement('div');
+                node.className = 'circuit-node';
+                node.style.left = Math.random() * 100 + '%';
+                node.style.top = Math.random() * 100 + '%';
+                node.style.transform = `scale(${0.5 + Math.random()})`;
+                circuitLines.appendChild(node);
+            }
+            
+            // 添加闪烁粒子
+            for (let i = 0; i < 15; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'electric-dot';
+                dot.style.left = Math.random() * 100 + '%';
+                dot.style.top = Math.random() * 100 + '%';
+                dot.style.animationDelay = Math.random() * 2 + 's';
+                circuitLines.appendChild(dot);
+            }
+        }
+        
+        // 在DOM加载完成后创建背景元素
+        document.addEventListener('DOMContentLoaded', createBackgroundElements);
+    </script>
+</body>
+</html>
